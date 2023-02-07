@@ -1,0 +1,66 @@
+{% extends 'Home/basic.html' %}
+
+
+{% block title %} Knowledge Master {% endblock title %}
+
+{% load static %}
+
+{% block body %}
+
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container text-center">
+        <h2 class="font-weight-bold ">TEST-SECTION</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+       <!-- ======= Popular Courses Section ======= -->
+<section id="popular-courses" class="courses">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row" style="display: flex; justify-content: space-around;" data-aos="zoom-in" data-aos-delay="100">
+        {% for maincat in categories %}
+
+          <div class="col-lg-4 col-md-6 d-flex  mt-4 mt-lg-0">
+            <div class="course-item">
+              <img src={{maincat.img.url}} class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  {% for cat in maincat.category_set.all %}
+                    {% if cat.sub_category_set.all|length_is:"0" %}
+                      <button class="co-btn"><span>{{cat.title}}</span><i class="bi bi-chevron-right"></i></button>
+
+                    {% else %}
+
+                      <nav class="navbar">
+                      <button class="co-btn">
+                        <li class="dropdown " style="list-style: none;"><span>{{cat.title}}</span> <i
+                            class="bi bi-chevron-down"></i>
+
+                          <ul class="dropdown-menu">
+                            {% for subcat in cat.sub_category_set.all %}
+                              <li><a href="google.com">{{subcat}}</a></li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                      </button>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <h3><span>{{maincat.Heading}}</span></h3>
+                <p>{{maincat.description}}</p>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Courses Section -->
+
+
+  </main><!-- End #main -->
+  {% endblock body %}

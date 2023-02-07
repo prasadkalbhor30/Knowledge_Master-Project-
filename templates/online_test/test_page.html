@@ -1,0 +1,77 @@
+{% extends 'Home/basic.html' %}
+
+
+{% block title %} Knowledge Master {% endblock title %}
+
+{% load static %}
+
+{% block body %}
+
+<main id="main" data-aos="fade-in">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="container text-center">
+      <h2 class="font-weight-bold ">TEST-SECTION</h2>
+    </div>
+  </div><!-- End Breadcrumbs -->
+  <form action="{% url "chk" topic %}" method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="row my-3">
+            <input type="hidden" name="qno{{forloop.counter}}" value="{{question.qno}}">
+            <h5 class="p-1"><b> Question {{forloop.counter}}.</b></h5>
+            <div class="col-12 text-md-right">
+              <h4><b> {{question.que}}</b>
+               
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="row my-3">
+            <h5 class="p-1"><b>Option a</b></h5>
+            <div class="col-12">
+              <input type="radio" name="ans{{forloop.counter}}" id="{{forloop.counter}}a" autocomplete="off" value="a">
+              <label class="label-t" for="{{forloop.counter}}a">{{question.optiona}}</label>
+            </div>
+          </div>
+          <div class="row my-3">
+            <h5 class="p-1"><b>Option b</b></h5>
+            <div class="col-12">
+              <input type="radio" name="ans{{forloop.counter}}" id="{{forloop.counter}}b" autocomplete="off" value="b">
+              <label class="label-t" for="{{forloop.counter}}b">{{question.optionb}}</label>
+            </div>
+          </div>
+          <div class="row my-3">
+            <h5 class="p-1"><b>Option c</b></h5>
+            <div class="col-12">
+              <input type="radio" name="ans{{forloop.counter}}" id="{{forloop.counter}}c" autocomplete="off" value="c">
+              <label class="label-t" for="{{forloop.counter}}c">{{question.optionc}}</label>
+            </div>
+          </div>
+          <div class="row my-3">
+            <h5 class="p-1"><b>Option d</b></h5>
+            <div class="col-12">
+              <input type="radio" name="ans{{forloop.counter}}" id="{{forloop.counter}}d" autocomplete="off" value="d">
+              <label class="label-t" for="{{forloop.counter}}d">{{question.optiond}}</label>
+            </div>
+          </div>
+              <input type="radio" name="ans{{forloop.counter}}" id="{{forloop.counter}}d" autocomplete="off" checked value="0">
+        </div>
+      </div>
+    {% endfor %}
+    <div class="row my-4">
+      <div class="col-10"></div>
+      <div class="col-2">
+        <button type="submit" class="submitBtn">Submit</button>
+      </div>
+    </div>
+  </form>
+  </div>
+
+  </div>
+
+</main>
+{% endblock body %}

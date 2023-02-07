@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test</title>
+</head>
+
+<body>
+    <h1>ONLINE TEST</h1>
+    <div>
+        <h3>Question</h3>
+    </div>
+    <table border="2px">
+        <tr>
+            <th>Sr. No</th>
+            <th>Question Statement</th>
+            <th>Optiona</th>
+            <th>Optionb</th>
+            <th>Optionc</th>
+            <th>Optiond</th>
+            <th>Answer</th>
+        </tr>
+        {% for question in questions %}
+        <tr>
+            <td>{{question.qno}}</td>
+            <td>{{question.que}}</td>
+            <td>{{question.optiona}}</td>
+            <td>{{question.optionb}}</td>
+            <td>{{question.optionc}}</td>
+            <td>{{question.optiond}}</td>
+            <td>{{question.ans}}</td>
+            <td>
+                <button><a href="/online-test/edit-question?qno={{question.qno}}">Edit</a></button>
+                <button><a href="/online-test/delete-question?qno={{question.qno}}">Delete</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    
+
+</body>
+
+</html>

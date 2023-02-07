@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<!--===============================================================================================-->
+	<style>
+		.warning {
+			padding: 5px 5px 5px 15px;
+			color: red;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt text-center " data-tilt>
+					<h1 class="p-t-150  font-weight-bold fs-50 ">KNOWLEDGE</h1>
+					<h1 class="p-t-30 font-weight-bold fs-50">MASTER</h1>
+				</div>
+				<form class="login100-form validate-form" action="/save-user/" method="post">
+					{% csrf_token %}
+					<span class="login100-form-title">
+						Create Your Acoount
+					</span>
+					<span class="warning">
+						{% if error == '0' %}
+						Email address already registered
+						{% elif error == '1' %}
+						<b>Password should contain :</b>Minimum 8 characters, Atleast one letter <br> Atlest
+						one special chracter <br>Atlest one number</span>
+					{% endif %}
+					<!-- this is name field -->
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="name" placeholder="Name" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+					<!-- this is email field -->
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" placeholder="Email" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							SIGN UP
+						</button>
+					</div>
+
+					<div class="text-center p-t-50">
+						<span class="txt1">
+							Already have an account?
+						</span>
+						<a class="txt2" href="/sign-in/">
+							SIGN IN
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}""></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src=" {% static 'js/main.js' %}""></script>
+
+</body>
+
+</html>

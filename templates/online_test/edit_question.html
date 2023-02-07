@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Question</title>
+</head>
+
+<body>
+    <h1>Edit Question</h1>
+    <form action="/online-test/save-edited-question/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="qno" value="{{question.qno}}" id="">
+        <div>
+            <label for="">Question Statement :</label>
+        </div>
+        <div>
+            <textarea required name="qst" id="" cols="30" rows="10">{{question.que}}</textarea>
+        </div>
+        <div>
+            <label for="">a</label>
+        </div>
+        <div>
+            <input required type="text" name="optiona" value="{{question.optiona}}" id="">
+        </div>
+        <div>
+            <label for="">b</label>
+        </div>
+        <div>
+            <input required type="text" name="optionb" value="{{question.optionb}}" id="">
+        </div>
+        <div>
+            <label for="">c</label>
+        </div>
+        <div>
+            <input required type="text" name="optionc" value="{{question.optionc}}" id="">
+        </div>
+        <div>
+            <label for="">d</label>
+        </div>
+        <div>
+            <input required type="text" name="optiond" value="{{question.optiond}}" id="">
+        </div>
+        <div>
+            <label for=""></label>
+        </div>
+        <div>
+            <select name="ans" id="">
+                <option value="a" {% if question.ans == "a" %} selected {% endif %} >a</option>
+                <option value="b" {% if question.ans == "b" %} selected {% endif %} >b</option>
+                <option value="c" {% if question.ans == "c" %} selected {% endif %} >c</option>
+                <option value="d" {% if question.ans == "d" %} selected {% endif %} >d</option>
+            </select>
+        </div>
+        <div><input style="margin: 10px;" type="submit" name="" id=""></div>
+    </form>
+</body>
+
+</html>

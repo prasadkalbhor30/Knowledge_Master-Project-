@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Question</title>
+</head>
+
+<body>
+    <h1>New Question</h1>
+    <form action="/online-test/save-question/" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="">Question Statement :</label>
+        </div>
+        {{bar}}
+        <div>
+            <textarea required name="qst" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="">a</label>
+        </div>
+        <div>
+            <input required required type="text" name="optiona" id="">
+        </div>
+        <div>
+            <label for="">b</label>
+        </div>
+        <div>
+            <input required type="text" name="optionb" id="">
+        </div>
+        <div>
+            <label for="">c</label>
+        </div>
+        <div>
+            <input required type="text" name="optionc" id="">
+        </div>
+        <div>
+            <label for="">d</label>
+        </div>
+        <div>
+            <input required type="text" name="optiond" id="">
+        </div>
+        <div>
+            <label for="">Answer</label>
+        </div>
+        <div>
+            <select name="ans" id="">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+                <option value="d">d</option>
+            </select>
+        </div>
+        <div class="rad">
+            <input type="radio" name="red" id="">trerh
+            <input type="radio" name="red" id="">rther
+            <input type="radio" name="red" id="">sdgf
+            <input type="radio" name="red" id="">dsfgdf
+        </div>
+            <input type="radio" name="student">
+        <div><input style="margin: 10px;" type="submit" name="" id=""></div>
+    </form>
+</body>
+
+</html>
